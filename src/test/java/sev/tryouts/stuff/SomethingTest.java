@@ -1,5 +1,6 @@
 package sev.tryouts.stuff;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -38,6 +39,12 @@ public class SomethingTest {
         List<String> testData = Something.createTestData(count);
         assertThat(format("Testdata should contain '%s' entries", count), testData.size(), is(count));
         assertThat("Number of testdata entries should not be greater than '5000', but was " + count, (count <= 5000), is(true));
+    }
+
+    @Ignore("test is ignored ...")
+    @Test
+    public void testShouldBeIgnored() {
+        assertThat(true, is(true));
     }
 
 }

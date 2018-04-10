@@ -16,6 +16,19 @@ import static org.junit.Assert.assertThat;
 public class SomethingTest {
 
     @Test
+    public void testingDoSome() {
+        assertThat(true, is(true));
+    }
+
+    @Test
+    public void testingDoSomethingLess() {
+        Random random = new Random();
+        int count = random.nextInt(100) * 10;
+        List<String> testData = Something.createTestData(count);
+        assertThat(format("Testdata should contain '%s' entries", count), testData.size(), is(count));
+    }
+
+    @Test
     public void testingDoSomething() {
         Random random = new Random();
         int count = random.nextInt(100) * 100;
@@ -44,6 +57,12 @@ public class SomethingTest {
     @Ignore("test is ignored ...")
     @Test
     public void testShouldBeIgnored() {
+        assertThat(true, is(true));
+    }
+
+    @Ignore("test is ignored too...")
+    @Test
+    public void testShouldBeIgnoredToo() {
         assertThat(true, is(true));
     }
 
